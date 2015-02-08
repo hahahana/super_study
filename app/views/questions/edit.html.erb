@@ -1,0 +1,7 @@
+<%= form_for @question, url: question_path(@question) do |f| %>
+  <label>Question</label><br /><%= f.text_area :question %><br />
+  <br />
+  <label>Answer</label><br /><%= f.text_area :answer %><br />
+  <br />
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,59 @@
+<style>
+  body {
+    font-family: Arial;
+  }
+
+  h1 {
+    width: 585px;
+  }
+
+  h1 a {
+    float: right;
+    font-size: 20px;
+    line-height: 37px;
+  }
+
+  .qa {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    width: 585px;
+    border-bottom: 1px solid black;
+  }
+
+  .question {
+    color: green;
+    font-weight: bold;
+    width: 250px;
+    display: inline-block;
+  }
+
+  .answer {
+    color: orange;
+    border-left: 1px solid black;
+    width: 250px;
+    display: inline-block;
+    padding-left: 15px;
+  }
+
+  .edit {
+    width: 100px;
+    border-left: 1px solid black;
+    padding-left: 15px;
+  }
+</style>
+
+<h1>Questions <%= link_to 'New Question', new_question_path %></h1>
+
+<% @questions.each do |question| %>
+  <div class='qa'>
+    <span class="question">
+      <%= question.question %>
+    </span>
+    <span class="answer">
+      <%= question.answer %>
+    </span>
+    <span class="edit">
+      <%= link_to 'Edit', edit_question_path(question) %>
+    </span>
+  </div>
+<% end %>
