@@ -40,14 +40,58 @@
     border-left: 1px solid black;
     padding-left: 15px;
   }
+
+  @page {
+    margin:0px auto;
+  }
+
+  @media print {
+    h1 {
+      text-align: center;
+      width: 100%;
+    }
+
+    .question, .answer {
+      color: black;
+      width: 48%;
+      height: 100px;
+      vertical-align: middle;
+      text-align: center;
+      line-height: 100px;
+    }
+
+    .edit {
+      display: none;
+    }
+
+    .new-question {
+      display: none;
+    }
+
+    .qa {
+      width: 100%;
+      border-bottom: 1px dashed black;
+      border-top: 1px dashed black;
+      padding-bottom: 0;
+    }
+
+    .question {
+      border-left: 1px dashed black;
+    }
+
+    .answer {
+      border-left: 1px dotted black;
+      border-right: 1px dashed black;
+    }
+  }
 </style>
 
-<h1>Questions <%= link_to 'New Question', new_question_path %></h1>
+<h1>Study Questions <%= link_to 'New Question', new_question_path, class: 'new-question' %></h1>
 
 <% @questions.each do |question| %>
   <div class='qa'>
     <span class="question">
-      <%= question.question %>
+      <%= link_to question.question, question_path(question) %>
     </span>
     <span class="answer">
       <%= question.answer %>

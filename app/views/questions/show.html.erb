@@ -1,0 +1,25 @@
+<div id="question">
+  <label>Question</label>
+  <div><%= @question.question %></div>
+</div>
+
+<div id="answer" style="display:none;">
+  <label>Answer</label>
+  <div><%= @question.answer %></div>
+</div>
+
+<button id="toggle-answer" onclick="toggleAnswer()">Show Answer</button>
+
+<script>
+  function toggleAnswer() {
+    var answer = $('#answer');
+
+    if (answer.is(":visible")) {
+      answer.hide();
+      $('#toggle-answer').text('Show Answer')
+    } else {
+      answer.show();
+      $('#toggle-answer').text('Hide Answer')
+    }
+  }
+</script>
