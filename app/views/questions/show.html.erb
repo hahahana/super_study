@@ -9,6 +9,9 @@
 </div>
 
 <button id="toggle-answer" onclick="toggleAnswer()">Show Answer</button>
+</br>
+<a href=<%= "/questions/#{@prev_question.id}" %>>Prev</a>
+<a href=<%= "/questions/#{@next_question.id}" %>>Next</a>
 
 <script>
   function toggleAnswer() {

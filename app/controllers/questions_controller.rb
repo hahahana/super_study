@@ -12,7 +12,10 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.find(params[:id])
+    id = params[:id]
+    @question = Question.find(id)
+    @prev_question = Question.order(id: :desc).find_by('questions.id < ?', id) || Question.last
+    @next_question = Question.order(id: :asc).find_by('questions.id > ?', id) || Question.first
   end
 
   def update
